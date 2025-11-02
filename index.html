@@ -190,30 +190,35 @@
                 </p>
 
                 <div id="success-message" class="hidden p-4 mb-4 text-sm text-green-100 rounded-lg bg-green-600 border border-green-700" role="alert">
-                    <span class="font-medium">Success!</span> Your inquiry has been received. I'll get back to you within 24 hours.
+                    <span class="font-medium">Success!</span> Your inquiry has been received and logged to your Google Sheet. I'll get back to you within 24 hours.
                 </div>
 
-                <form id="inquiry-form" class="space-y-6">
+                <!-- FORM UPDATED FOR GOOGLE FORMS SUBMISSION -->
+                <form id="inquiry-form" class="space-y-6" method="POST">
                     <div>
                         <label for="name" class="block mb-2 text-sm font-medium text-gray-200">Your Name</label>
-                        <input type="text" id="name" name="name" class="bg-dark-bg border border-gray-600 text-gray-100 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-3 placeholder-gray-500" placeholder="Jane Doe" required>
+                        <!-- IMPORTANT: Replace entry.1234567890 with your Google Form Field ID -->
+                        <input type="text" id="name" name="entry.91745632" class="bg-dark-bg border border-gray-600 text-gray-100 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-3 placeholder-gray-500" placeholder="Jane Doe" required>
                     </div>
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-200">Your Email</label>
-                        <input type="email" id="email" name="email" class="bg-dark-bg border border-gray-600 text-gray-100 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-3 placeholder-gray-500" placeholder="name@example.com" required>
+                        <!-- IMPORTANT: Replace entry.9876543210 with your Google Form Field ID -->
+                        <input type="email" id="email" name="entry.859949158" class="bg-dark-bg border border-gray-600 text-gray-100 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-3 placeholder-gray-500" placeholder="name@example.com" required>
                     </div>
                     <div>
                         <label for="topic" class="block mb-2 text-sm font-medium text-gray-200">Inquiry Topic</label>
-                        <select id="topic" name="topic" class="bg-dark-bg border border-gray-600 text-gray-100 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-3" required>
+                        <!-- IMPORTANT: Replace entry.1122334455 with your Google Form Field ID -->
+                        <select id="topic" name="entry.787536078" class="bg-dark-bg border border-gray-600 text-gray-100 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-3" required>
                             <option value="" disabled selected>Select a Topic</option>
-                            <option value="sat">SAT Tutoring Inquiry</option>
-                            <option value="portfolio">Development/Project Inquiry</option>
-                            <option value="other">Other</option>
+                            <option value="SAT Tutoring Inquiry">SAT Tutoring Inquiry</option>
+                            <option value="Development/Project Inquiry">Development/Project Inquiry</option>
+                            <option value="Other">Other</option>
                         </select>
                     </div>
                     <div>
                         <label for="message" class="block mb-2 text-sm font-medium text-gray-200">Your Message</label>
-                        <textarea id="message" name="message" rows="4" class="bg-dark-bg border border-gray-600 text-gray-100 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-3 placeholder-gray-500" placeholder="Tell me about your project or SAT goals..." required></textarea>
+                        <!-- IMPORTANT: Replace entry.6677889900 with your Google Form Field ID -->
+                        <textarea id="message" name="entry.1019419988" rows="4" class="bg-dark-bg border border-gray-600 text-gray-100 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-3 placeholder-gray-500" placeholder="Tell me about your project or SAT goals..." required></textarea>
                     </div>
                     <button type="submit" class="w-full bg-primary hover:bg-cyan-600 text-dark-bg font-bold py-3 rounded-xl transition duration-300 shadow-lg">
                         Send Inquiry
@@ -237,6 +242,12 @@
     </footer>
 
     <script>
+        // === CRITICAL STEP: REPLACE THIS PLACEHOLDER URL ===
+        // 1. Create your Google Form and get the pre-filled link.
+        // 2. Change 'viewform' to 'formResponse' in that link.
+        // 3. Paste the result here.
+        const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScK5mj7VbyHN1GNdoR6x7oxHIXTdmtTZqfkOtP0qKDqjNmiUA/formResponse'; 
+        
         // --- Navbar Toggle Logic ---
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -251,26 +262,19 @@
 
         mobileMenuBtn.addEventListener('click', toggleMenu);
 
-        // --- Smooth Scrolling for Anchor Links (New Logic) ---
-        // Selects all anchor tags with href starting with '#'
+        // --- Smooth Scrolling for Anchor Links ---
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
                 
-                // Prevent default jump behavior only if it points to a section ID and not just '#'
                 if (href !== '#' && href.length > 1) {
                     e.preventDefault();
-
                     const targetElement = document.querySelector(href);
-
                     if (targetElement) {
-                        // Use scrollIntoView with smooth behavior
                         targetElement.scrollIntoView({
                             behavior: 'smooth',
-                            block: 'start' // Scroll to the top of the element
+                            block: 'start'
                         });
-                        
-                        // Close mobile menu after clicking a link
                         if (!mobileMenu.classList.contains('hidden')) {
                             closeMenu();
                         }
@@ -279,94 +283,56 @@
             });
         });
 
-        // --- Form Submission Logic (Mock) ---
+        // --- Form Submission Logic (AJAX to Google Form) ---
         const form = document.getElementById('inquiry-form');
         const successMessage = document.getElementById('success-message');
 
-        form.addEventListener('submit', function(event) {
+        form.addEventListener('submit', async function(event) {
             event.preventDefault(); // Stop the default form submission
 
-            const formData = new FormData(form);
-            const data = {};
-            formData.forEach((value, key) => {
-                data[key] = value;
-            });
-
-            // Log the data (in a real app, this would be an API call to a backend service like Firebase/SendGrid)
-            console.log('Inquiry Form Submitted:', data);
-
-            // 1. Show the success message
-            successMessage.classList.remove('hidden');
-            successMessage.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-            // 2. Clear the form fields
-            form.reset();
-
-            // 3. Hide the success message after 5 seconds
-            setTimeout(() => {
-                successMessage.classList.add('hidden');
-            }, 5000);
-        });
-
-        // --- Firebase Integration (Placeholder/Setup Only) ---
-        // Note: For a real persistent contact form, you would send the data
-        // logged above to a secure backend like Firestore or a serverless function.
-
-        // The global variables __app_id, __firebase_config, and __initial_auth_token
-        // are used here for Firebase setup in a collaborative environment.
-        /*
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
-        // Setup Firebase
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
-
-        if (Object.keys(firebaseConfig).length > 0) {
-            const app = initializeApp(firebaseConfig);
-            const db = getFirestore(app);
-            const auth = getAuth(app);
-            // setLogLevel('Debug'); // Uncomment to debug Firebase
-
-            async function initializeAuth() {
-                try {
-                    if (typeof __initial_auth_token !== 'undefined') {
-                        await signInWithCustomToken(auth, __initial_auth_token);
-                    } else {
-                        await signInAnonymously(auth);
-                    }
-                    console.log('Firebase Authentication successful.');
-                } catch (error) {
-                    console.error('Firebase Auth Error:', error);
-                }
+            if (GOOGLE_FORM_URL === 'YOUR_GOOGLE_FORM_SUBMIT_URL_HERE') {
+                // Inform the user the form is not connected
+                console.error("Please update GOOGLE_FORM_URL in the script to your actual form endpoint to enable submission to Google Sheets.");
+                alert("FORM NOT CONNECTED: Please replace the placeholder URL (GOOGLE_FORM_URL) and the field names (entry.xxxxxxxxx) with your actual Google Form details.");
+                return;
             }
-            initializeAuth();
 
-            // Example Firestore function for the form submission (not actively called here to keep the mock log simple)
-            // async function saveInquiry(data) {
-            //     try {
-            //         const userId = auth.currentUser?.uid || 'anonymous';
-            //         const inquiriesCollectionPath = `artifacts/${appId}/users/${userId}/inquiries`;
-            //         await addDoc(collection(db, inquiriesCollectionPath), {
-            //             ...data,
-            //             timestamp: new Date().toISOString(),
-            //             status: 'New'
-            //         });
-            //         console.log("Inquiry saved to Firestore.");
-            //     } catch (e) {
-            //         console.error("Error adding document: ", e);
-            //     }
-            // }
+            const formData = new FormData(form);
+            
+            try {
+                // Convert FormData to URLSearchParams for x-www-form-urlencoded format
+                const urlEncodedData = new URLSearchParams();
+                for (const [key, value] of formData.entries()) {
+                    urlEncodedData.append(key, value);
+                }
 
-            // Replace form.addEventListener logic if you wish to use Firebase fully:
-            // form.addEventListener('submit', async function(event) {
-            //     // ... form data collection ...
-            //     await saveInquiry(data);
-            //     // ... show success message ...
-            // });
-        }
-        */
+                // Submits data via AJAX without redirecting. mode: 'no-cors' is required.
+                const response = await fetch(GOOGLE_FORM_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', 
+                    body: urlEncodedData,
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    }
+                });
+                
+                // Show the success message and scroll to it
+                successMessage.classList.remove('hidden');
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                // Clear the form fields
+                form.reset();
+
+                // Hide the success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.classList.add('hidden');
+                }, 5000);
+                
+            } catch (error) {
+                console.error('Submission Error:', error);
+                alert('Oops! The inquiry could not be sent due to a connection error. Please try again.');
+            }
+        });
     </script>
 </body>
 </html>
