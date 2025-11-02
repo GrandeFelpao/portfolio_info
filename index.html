@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Portfolio & SAT Tutoring</title>
+    <title>Portfolio Felipe Todescan</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Configure Tailwind for Inter font and custom colors -->
@@ -66,6 +66,11 @@
             <a href="#contact" class="block py-2 text-lg bg-primary/20 text-primary mt-2 border border-primary/50 rounded-xl px-4" onclick="closeMenu()">Inquire Now</a>
         </div>
     </header>
+    
+    <!-- Site Under Construction Disclaimer -->
+    <div class="bg-yellow-900/50 border-y border-yellow-500/70 p-3 text-center text-sm font-medium text-yellow-200">
+        ⚠️ **Site Under Construction:** This website is currently being updated. Some content and data may not be final or fully accurate.
+    </div>
 
     <main class="max-w-7xl mx-auto">
 
@@ -77,7 +82,7 @@
                     Building <span class="text-primary">Projects</span> That Shape The <span class="text-primary">Present</span>
                 </h1>
                 <p class="text-xl text-gray-300 mb-10">
-                    Aspiring Mechanical Engineer with a rich project background working to positively shape the present era
+                    Aspiring Mechanical Engineer with a rich project backrgound working to positively shape the present era
                 </p>
                 <div class="space-x-4">
                     <a href="#portfolio" class="bg-primary hover:bg-cyan-600 text-dark-bg font-bold py-3 px-8 rounded-xl transition duration-300 shadow-xl inline-block">View Portfolio</a>
@@ -92,36 +97,28 @@
                 <span class="text-primary">|</span> Recent Projects
             </h2>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+            <!-- GRID UPDATED FOR 2 PROJECTS -->
+            <div class="grid md:grid-cols-2 gap-8">
                 <!-- Project Card 1: Stock Tracker -->
                 <div class="bg-dark-bg p-6 rounded-xl shadow-lg hover:shadow-primary/50 transition duration-300 transform hover:-translate-y-1 border border-secondary">
-                    <!-- IMAGE PATH RELATIVE TO INDEX.HTML -->
-                    <img src="./images/project1.jpg" 
-                        alt="Stock Tracker Project Image" 
-                        class="w-full h-auto rounded-lg mb-4 border border-gray-700 object-cover">
-                    <!-- END IMAGE PATH -->
+                    <img src="./images/project1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e293b/d1d5db?text=Stock+Tracker+Image';" alt="Stock Tracker Project Image" class="w-full h-auto rounded-lg mb-4 object-cover border border-gray-700">
                     <h3 class="text-2xl font-bold mb-3 text-primary">Stock Tracker</h3>
-                    <p class="text-gray-400 mb-4">Using an ESP32 I was able to get up to date stock quotes on an LCD display while using a potentiometer to scroll through them.</p>
+                    <p class="text-gray-400 mb-4">Using an ESP32 I was able to get up to date stock quotes on an LCD display while using a potentiometer to scroll through different quotes</p>
                     <div class="flex flex-wrap gap-2 text-sm mb-4">
                         <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full">Python</span>
                         <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full">Problem Solving</span>
                         <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full">Electronics</span>
                     </div>
-                    <!-- LINK UPDATED TO NEW HTML FILE -->
                     <a href="./stock_tracker_detail.html" class="block w-full text-center bg-primary/20 text-primary hover:bg-primary/30 font-bold py-2 rounded-lg transition duration-300">
-                        Learn More &rarr;
+                        Learn More
                     </a>
                 </div>
 
                 <!-- Project Card 2: WPT Demo -->
                 <div class="bg-dark-bg p-6 rounded-xl shadow-lg hover:shadow-primary/50 transition duration-300 transform hover:-translate-y-1 border border-secondary">
-                    <!-- IMAGE PATH RELATIVE TO INDEX.HTML -->
-                    <img src="./images/project2.jpg" 
-                        alt="WPT Demo Project Image" 
-                        class="w-full h-auto rounded-lg mb-4 border border-gray-700 object-cover">
-                    <!-- END IMAGE PATH -->
+                    <img src="./images/project2.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e293b/d1d5db?text=WPT+Demo+Image';" alt="WPT Demo Project Image" class="w-full h-auto rounded-lg mb-4 object-cover border border-gray-700">
                     <h3 class="text-2xl font-bold mb-3 text-primary">WPT Demo</h3>
-                    <p class="text-gray-400 mb-4">Participated in a project that used copper coils to transfer power wirelessly, powering an LED ring from a short distance. Aimed to be an aquarium light.</p>
+                    <p class="text-gray-400 mb-4">Participated in a project that used copper coils to transfer power wirelessly, powering an LED ring from a short distance. Aimed to be an aquarium light</p>
                     <div class="flex flex-wrap gap-2 text-sm mb-4">
                         <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full">High Level Electronics</span>
                         <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full">Python</span>
@@ -129,12 +126,10 @@
                         <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full">AC Circuitry</span>
                         <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full">DC Circuitry</span>
                     </div>
-                    <!-- KEEP THIS AS A PLACEHOLDER FOR NOW -->
-                    <a href="#link-to-wpt-demo-details" target="_blank" class="block w-full text-center bg-primary/20 text-primary hover:bg-primary/30 font-bold py-2 rounded-lg transition duration-300">
-                        Learn More &rarr;
+                    <a href="#link-to-wpt-demo-details" class="block w-full text-center bg-primary/20 text-primary hover:bg-primary/30 font-bold py-2 rounded-lg transition duration-300">
+                        Learn More
                     </a>
                 </div>
-                
             </div>
         </section>
 
@@ -154,23 +149,23 @@
                         <ul class="space-y-3 text-gray-300">
                             <li class="flex items-start">
                                 <span class="text-primary mr-3 text-xl">&#10003;</span>
-                                **Digital SAT Mastery:** Up-to-date strategies for the new adaptive format.
+                                <strong>Digital SAT Mastery:</strong> Up-to-date strategies for the new adaptive format.
                             </li>
                             <li class="flex items-start">
                                 <span class="text-primary mr-3 text-xl">&#10003;</span>
-                                **Custom Curriculum:** Study plans tailored to your diagnostic results and goals.
+                                <strong>Custom Curriculum:</strong> Study plans tailored to your diagnostic results and goals.
                             </li>
                             <li class="flex items-start">
                                 <span class="text-primary mr-3 text-xl">&#10003;</span>
-                                **Proven Results:** Previous students have seen an average score increase of **150+ points**.
+                                <strong>Proven Results:</strong> Previous students have seen an average score increase of <strong>150+ points</strong>.
                             </li>
                         </ul>
                     </div>
                     <!-- Mock Pricing/Qualification Card -->
                     <div class="bg-dark-bg p-6 rounded-xl shadow-xl border-l-4 border-primary/70">
                         <p class="text-lg font-bold text-primary mb-2">My Qualifications</p>
-                        <p class="text-4xl font-extrabold text-gray-50 mb-4">1580</p>
-                        <p class="text-gray-300 mb-4">Perfect or near-perfect score on the SAT, guaranteeing deep subject knowledge.</p>
+                        <p class="text-4xl font-extrabold text-gray-50 mb-4">1470</p>
+                        <p class="text-gray-300 mb-4">740 in English and 730 in Math</p>
                         <div class="text-lg font-semibold mb-2">Rate Structure:</div>
                         <ul class="space-y-1 text-gray-400">
                             <li>$80/hour - Individual Sessions</li>
@@ -202,17 +197,17 @@
                 <form id="inquiry-form" class="space-y-6" method="POST">
                     <div>
                         <label for="name" class="block mb-2 text-sm font-medium text-gray-200">Your Name</label>
-                        <!-- Field ID is confirmed to be entry.91745632 -->
+                        <!-- IMPORTANT: Replace entry.1234567890 with your Google Form Field ID -->
                         <input type="text" id="name" name="entry.91745632" class="bg-dark-bg border border-gray-600 text-gray-100 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-3 placeholder-gray-500" placeholder="Jane Doe" required>
                     </div>
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-200">Your Email</label>
-                        <!-- Field ID is confirmed to be entry.859949158 -->
+                        <!-- IMPORTANT: Replace entry.9876543210 with your Google Form Field ID -->
                         <input type="email" id="email" name="entry.859949158" class="bg-dark-bg border border-gray-600 text-gray-100 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-3 placeholder-gray-500" placeholder="name@example.com" required>
                     </div>
                     <div>
                         <label for="topic" class="block mb-2 text-sm font-medium text-gray-200">Inquiry Topic</label>
-                        <!-- Field ID is confirmed to be entry.787536078 -->
+                        <!-- IMPORTANT: Replace entry.1122334455 with your Google Form Field ID -->
                         <select id="topic" name="entry.787536078" class="bg-dark-bg border border-gray-600 text-gray-100 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-3" required>
                             <option value="" disabled selected>Select a Topic</option>
                             <option value="SAT Tutoring Inquiry">SAT Tutoring Inquiry</option>
@@ -222,7 +217,7 @@
                     </div>
                     <div>
                         <label for="message" class="block mb-2 text-sm font-medium text-gray-200">Your Message</label>
-                        <!-- Field ID is confirmed to be entry.1019419988 -->
+                        <!-- IMPORTANT: Replace entry.6677889900 with your Google Form Field ID -->
                         <textarea id="message" name="entry.1019419988" rows="4" class="bg-dark-bg border border-gray-600 text-gray-100 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-3 placeholder-gray-500" placeholder="Tell me about your project or SAT goals..." required></textarea>
                     </div>
                     <button type="submit" class="w-full bg-primary hover:bg-cyan-600 text-dark-bg font-bold py-3 rounded-xl transition duration-300 shadow-lg">
@@ -246,8 +241,10 @@
     </footer>
 
     <script>
-        // === CRITICAL STEP: GOOGLE FORM SUBMISSION URL ===
-        // This URL is now correctly pointing to your Google Form endpoint.
+        // === CRITICAL STEP: REPLACE THIS PLACEHOLDER URL ===
+        // 1. Create your Google Form and get the pre-filled link.
+        // 2. Change 'viewform' to 'formResponse' in that link.
+        // 3. Paste the result here.
         const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScK5mj7VbyHN1GNdoR6x7oxHIXTdmtTZqfkOtP0qKDqjNmiUA/formResponse'; 
         
         // --- Navbar Toggle Logic ---
@@ -269,9 +266,7 @@
             anchor.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
                 
-                // Only use smooth scroll for internal links that start with '#' AND are not links to another file.
-                // Links like a[href^="./stock_tracker_detail.html"] will use default navigation behavior.
-                if (href.startsWith('#') && href.length > 1) {
+                if (href !== '#' && href.length > 1) {
                     e.preventDefault();
                     const targetElement = document.querySelector(href);
                     if (targetElement) {
@@ -293,6 +288,13 @@
 
         form.addEventListener('submit', async function(event) {
             event.preventDefault(); // Stop the default form submission
+
+            if (GOOGLE_FORM_URL === 'YOUR_GOOGLE_FORM_SUBMIT_URL_HERE') {
+                // Inform the user the form is not connected
+                console.error("Please update GOOGLE_FORM_URL in the script to your actual form endpoint to enable submission to Google Sheets.");
+                alert("FORM NOT CONNECTED: Please replace the placeholder URL (GOOGLE_FORM_URL) and the field names (entry.xxxxxxxxx) with your actual Google Form details.");
+                return;
+            }
 
             const formData = new FormData(form);
             
@@ -327,8 +329,6 @@
                 
             } catch (error) {
                 console.error('Submission Error:', error);
-                // Since this uses no-cors mode, the 'catch' block usually won't fire 
-                // for HTTP errors, but it catches network issues.
                 alert('Oops! The inquiry could not be sent due to a connection error. Please try again.');
             }
         });
