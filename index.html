@@ -3,85 +3,370 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Pages Website</title>
-    <!-- Load Tailwind CSS from CDN for easy styling -->
+    <title>Your Portfolio & SAT Tutoring</title>
+    <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind for Inter font and custom colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#06b6d4', // Cyan 500
+                        'secondary': '#1f2937', // Gray 800
+                        'dark-bg': '#0f172a', // Slate 900
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        /* Custom styles for a modern, clean aesthetic */
+        /* Apply Inter font globally and ensure smooth scrolling */
         body {
             font-family: 'Inter', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            background-color: #f7fafc; /* Light gray background */
+            /* This property enables smooth scrolling globally, but we'll reinforce it with JS below */
+            scroll-behavior: smooth;
+        }
+        /* Custom scrollbar for aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #06b6d4;
+            border-radius: 4px;
         }
     </style>
 </head>
-<body>
+<body class="bg-dark-bg text-gray-100 min-h-screen">
 
-    <!-- Header Section -->
-    <header class="bg-indigo-600 shadow-md">
-        <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-white">Project Nova</h1>
-            <nav class="space-x-4">
-                <a href="#home" class="text-white hover:text-indigo-200 transition duration-150">Home</a>
-                <a href="#about" class="text-white hover:text-indigo-200 transition duration-150">About</a>
-                <a href="#contact" class="text-white hover:text-indigo-200 transition duration-150">Contact</a>
-            </nav>
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 bg-dark-bg/90 backdrop-blur-sm shadow-lg">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#hero" class="text-2xl font-bold text-primary hover:text-cyan-400 transition">Felipe R Todescan</a>
+            <div class="hidden md:flex space-x-8 text-lg">
+                <a href="#portfolio" class="hover:text-primary transition p-2 rounded-lg">Portfolio</a>
+                <a href="#tutoring" class="hover:text-primary transition p-2 rounded-lg">SAT Tutoring</a>
+                <a href="#contact" class="hover:text-primary transition p-2 rounded-lg bg-primary/20 text-primary border border-primary/50 rounded-xl px-4">Inquire Now</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-2xl text-primary p-2 focus:outline-none">
+                &#9776; <!-- Hamburger icon -->
+            </button>
+        </nav>
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden absolute w-full bg-secondary/95 backdrop-blur-sm shadow-xl p-4 transition-all duration-300">
+            <a href="#portfolio" class="block py-2 text-lg hover:text-primary transition rounded-lg" onclick="closeMenu()">Portfolio</a>
+            <a href="#tutoring" class="block py-2 text-lg hover:text-primary transition rounded-lg" onclick="closeMenu()">SAT Tutoring</a>
+            <a href="#contact" class="block py-2 text-lg bg-primary/20 text-primary mt-2 border border-primary/50 rounded-xl px-4" onclick="closeMenu()">Inquire Now</a>
         </div>
     </header>
 
-    <!-- Main Content Area -->
-    <main class="flex-grow">
-        <!-- Hero Section -->
-        <section id="home" class="py-20 text-center bg-white border-b-2 border-indigo-100">
-            <div class="max-w-4xl mx-auto px-4">
-                <h2 class="text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">
-                    Welcome to Your Live Website
-                </h2>
-                <p class="text-xl text-gray-600 mb-8">
-                    This file is now live on the internet, thanks to GitHub Pages!
+    <main class="max-w-7xl mx-auto">
+
+        <!-- 1. Hero Section -->
+        <section id="hero" class="py-20 md:py-32 px-4 sm:px-6 lg:px-8 text-center">
+            <div class="max-w-4xl mx-auto">
+                <p class="text-lg text-primary mb-3">Developer | Educator | Problem Solver</p>
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
+                    Building <span class="text-primary">Software</span> & Shaping <span class="text-primary">Futures</span>
+                </h1>
+                <p class="text-xl text-gray-300 mb-10">
+                    I combine my passion for **full-stack development** with a proven track record of helping students master the **SAT**. Explore my projects or book a session today!
                 </p>
-                <a href="https://github.com/new" target="_blank" class="inline-block px-8 py-3 border border-transparent text-base font-medium rounded-full shadow-lg text-white bg-indigo-500 hover:bg-indigo-700 transition duration-300 transform hover:scale-105">
-                    Start Your Own Repository
+                <div class="space-x-4">
+                    <a href="#portfolio" class="bg-primary hover:bg-cyan-600 text-dark-bg font-bold py-3 px-8 rounded-xl transition duration-300 shadow-xl inline-block">View Portfolio</a>
+                    <a href="#contact" class="border border-primary text-primary hover:bg-primary/20 font-bold py-3 px-8 rounded-xl transition duration-300 inline-block">Book a Consultation</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Portfolio Section -->
+        <section id="portfolio" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-secondary rounded-xl shadow-2xl mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 border-b-2 border-primary/50 pb-4 max-w-lg mx-auto">
+                <span class="text-primary">|</span> Recent Projects
+            </h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="bg-dark-bg p-6 rounded-xl shadow-lg hover:shadow-primary/50 transition duration-300 transform hover:-translate-y-1 border border-secondary">
+                    <h3 class="text-2xl font-bold mb-3 text-primary">E-commerce API Backend</h3>
+                    <p class="text-gray-400 mb-4">A high-performance REST API built with Node.js and MongoDB, handling product catalog, authentication, and order processing.</p>
+                    <div class="flex flex-wrap gap-2 text-sm">
+                        <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full">Node.js</span>
+                        <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full">MongoDB</span>
+                        <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full">Express</span>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="bg-dark-bg p-6 rounded-xl shadow-lg hover:shadow-primary/50 transition duration-300 transform hover:-translate-y-1 border border-secondary">
+                    <h3 class="text-2xl font-bold mb-3 text-primary">React Dashboard UI</h3>
+                    <p class="text-gray-400 mb-4">A modern, responsive analytics dashboard interface using React and Tailwind CSS, featuring real-time data visualization.</p>
+                    <div class="flex flex-wrap gap-2 text-sm">
+                        <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full">React</span>
+                        <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full">Tailwind CSS</span>
+                        <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full">Chart.js</span>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="bg-dark-bg p-6 rounded-xl shadow-lg hover:shadow-primary/50 transition duration-300 transform hover:-translate-y-1 border border-secondary">
+                    <h3 class="text-2xl font-bold mb-3 text-primary">Machine Learning Model</h3>
+                    <p class="text-gray-400 mb-4">Developed a predictive model for stock market trends using Python, Pandas, and Scikit-learn with 85% accuracy.</p>
+                    <div class="flex flex-wrap gap-2 text-sm">
+                        <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full">Python</span>
+                        <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full">Scikit-learn</span>
+                        <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full">Data Science</span>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#" class="text-primary hover:text-cyan-400 font-medium inline-flex items-center group">
+                    View More on GitHub &rarr;
                 </a>
             </div>
         </section>
 
-        <!-- Feature Section (Responsive Grid) -->
-        <section id="about" class="py-16 px-4 sm:px-6 lg:px-8">
-            <h3 class="text-3xl font-bold text-center text-gray-800 mb-12">How It Works</h3>
-            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Card 1: HTML -->
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                    <div class="text-4xl text-indigo-500 mb-4">📄</div>
-                    <h4 class="text-xl font-semibold mb-2">HTML Structure</h4>
-                    <p class="text-gray-600">This file provides the basic content and skeleton of your site. Keep all your code in this single file for easy deployment.</p>
-                </div>
+        <!-- 3. SAT Tutoring Section -->
+        <section id="tutoring" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 border-b-2 border-primary/50 pb-4 max-w-lg mx-auto">
+                <span class="text-primary">|</span> Expert SAT Prep
+            </h2>
 
-                <!-- Card 2: CSS -->
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                    <div class="text-4xl text-indigo-500 mb-4">🎨</div>
-                    <h4 class="text-xl font-semibold mb-2">Tailwind Styling</h4>
-                    <p class="text-gray-600">We use Tailwind CSS classes (via CDN) for a beautiful, responsive, and mobile-first design right out of the box.</p>
-                </div>
-
-                <!-- Card 3: GitHub Pages -->
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                    <div class="text-4xl text-indigo-500 mb-4">🚀</div>
-                    <h4 class="text-xl font-semibold mb-2">Free Hosting</h4>
-                    <p class="text-gray-600">GitHub Pages turns your repository into a publicly accessible, secure website for free.</p>
+            <div class="bg-secondary p-8 rounded-xl shadow-2xl">
+                <div class="grid md:grid-cols-2 gap-10 items-center">
+                    <div>
+                        <h3 class="text-3xl font-semibold mb-4 text-gray-50">Score-Boosting Strategies</h3>
+                        <p class="text-gray-300 mb-6">
+                            I offer personalized, one-on-one SAT tutoring focused on maximizing your score through targeted practice, time management techniques, and deep content review for both Math and Evidence-Based Reading & Writing.
+                        </p>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <span class="text-primary mr-3 text-xl">&#10003;</span>
+                                **Digital SAT Mastery:** Up-to-date strategies for the new adaptive format.
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-3 text-xl">&#10003;</span>
+                                **Custom Curriculum:** Study plans tailored to your diagnostic results and goals.
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-3 text-xl">&#10003;</span>
+                                **Proven Results:** Previous students have seen an average score increase of **150+ points**.
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Mock Pricing/Qualification Card -->
+                    <div class="bg-dark-bg p-6 rounded-xl shadow-xl border-l-4 border-primary/70">
+                        <p class="text-lg font-bold text-primary mb-2">My Qualifications</p>
+                        <p class="text-4xl font-extrabold text-gray-50 mb-4">1580</p>
+                        <p class="text-gray-300 mb-4">Perfect or near-perfect score on the SAT, guaranteeing deep subject knowledge.</p>
+                        <div class="text-lg font-semibold mb-2">Rate Structure:</div>
+                        <ul class="space-y-1 text-gray-400">
+                            <li>$80/hour - Individual Sessions</li>
+                            <li>$70/hour - 10-Hour Package</li>
+                            <li>$60/hour - Group Sessions (3-5 students)</li>
+                        </ul>
+                        <a href="#contact" class="mt-4 block text-center bg-primary text-dark-bg font-bold py-2 rounded-lg hover:bg-cyan-600 transition">Start Your Prep</a>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- 4. Contact/Inquiry Form Section -->
+        <section id="contact" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 border-b-2 border-primary/50 pb-4 max-w-lg mx-auto">
+                <span class="text-primary">|</span> Get in Touch
+            </h2>
+
+            <div class="max-w-3xl mx-auto bg-secondary p-8 md:p-12 rounded-xl shadow-2xl">
+                <p class="text-gray-300 mb-8 text-center text-lg">
+                    Whether it's for a development project or SAT tutoring, drop me a line.
+                </p>
+
+                <div id="success-message" class="hidden p-4 mb-4 text-sm text-green-100 rounded-lg bg-green-600 border border-green-700" role="alert">
+                    <span class="font-medium">Success!</span> Your inquiry has been received. I'll get back to you within 24 hours.
+                </div>
+
+                <form id="inquiry-form" class="space-y-6">
+                    <div>
+                        <label for="name" class="block mb-2 text-sm font-medium text-gray-200">Your Name</label>
+                        <input type="text" id="name" name="name" class="bg-dark-bg border border-gray-600 text-gray-100 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-3 placeholder-gray-500" placeholder="Jane Doe" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-200">Your Email</label>
+                        <input type="email" id="email" name="email" class="bg-dark-bg border border-gray-600 text-gray-100 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-3 placeholder-gray-500" placeholder="name@example.com" required>
+                    </div>
+                    <div>
+                        <label for="topic" class="block mb-2 text-sm font-medium text-gray-200">Inquiry Topic</label>
+                        <select id="topic" name="topic" class="bg-dark-bg border border-gray-600 text-gray-100 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-3" required>
+                            <option value="" disabled selected>Select a Topic</option>
+                            <option value="sat">SAT Tutoring Inquiry</option>
+                            <option value="portfolio">Development/Project Inquiry</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="message" class="block mb-2 text-sm font-medium text-gray-200">Your Message</label>
+                        <textarea id="message" name="message" rows="4" class="bg-dark-bg border border-gray-600 text-gray-100 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-3 placeholder-gray-500" placeholder="Tell me about your project or SAT goals..." required></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-primary hover:bg-cyan-600 text-dark-bg font-bold py-3 rounded-xl transition duration-300 shadow-lg">
+                        Send Inquiry
+                    </button>
+                </form>
+            </div>
+        </section>
+
     </main>
 
-    <!-- Footer Section -->
-    <footer id="contact" class="bg-gray-800 text-white mt-auto">
-        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center">
-            <p>&copy; 2025 GitHub Pages Demo. Built with love and HTML.</p>
+    <!-- Footer -->
+    <footer class="mt-16 py-8 border-t border-gray-700 bg-secondary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
+            <p>&copy; 2025 Felipe R Todescan. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="#" class="hover:text-primary transition">LinkedIn</a>
+                <a href="#" class="hover:text-primary transition">GitHub</a>
+                <a href="mailto:your.email@example.com" class="hover:text-primary transition">Email</a>
+            </div>
         </div>
     </footer>
 
+    <script>
+        // --- Navbar Toggle Logic ---
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        function closeMenu() {
+            mobileMenu.classList.add('hidden');
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+
+        // --- Smooth Scrolling for Anchor Links (New Logic) ---
+        // Selects all anchor tags with href starting with '#'
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                
+                // Prevent default jump behavior only if it points to a section ID and not just '#'
+                if (href !== '#' && href.length > 1) {
+                    e.preventDefault();
+
+                    const targetElement = document.querySelector(href);
+
+                    if (targetElement) {
+                        // Use scrollIntoView with smooth behavior
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start' // Scroll to the top of the element
+                        });
+                        
+                        // Close mobile menu after clicking a link
+                        if (!mobileMenu.classList.contains('hidden')) {
+                            closeMenu();
+                        }
+                    }
+                }
+            });
+        });
+
+        // --- Form Submission Logic (Mock) ---
+        const form = document.getElementById('inquiry-form');
+        const successMessage = document.getElementById('success-message');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Stop the default form submission
+
+            const formData = new FormData(form);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+
+            // Log the data (in a real app, this would be an API call to a backend service like Firebase/SendGrid)
+            console.log('Inquiry Form Submitted:', data);
+
+            // 1. Show the success message
+            successMessage.classList.remove('hidden');
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            // 2. Clear the form fields
+            form.reset();
+
+            // 3. Hide the success message after 5 seconds
+            setTimeout(() => {
+                successMessage.classList.add('hidden');
+            }, 5000);
+        });
+
+        // --- Firebase Integration (Placeholder/Setup Only) ---
+        // Note: For a real persistent contact form, you would send the data
+        // logged above to a secure backend like Firestore or a serverless function.
+
+        // The global variables __app_id, __firebase_config, and __initial_auth_token
+        // are used here for Firebase setup in a collaborative environment.
+        /*
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Setup Firebase
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+
+        if (Object.keys(firebaseConfig).length > 0) {
+            const app = initializeApp(firebaseConfig);
+            const db = getFirestore(app);
+            const auth = getAuth(app);
+            // setLogLevel('Debug'); // Uncomment to debug Firebase
+
+            async function initializeAuth() {
+                try {
+                    if (typeof __initial_auth_token !== 'undefined') {
+                        await signInWithCustomToken(auth, __initial_auth_token);
+                    } else {
+                        await signInAnonymously(auth);
+                    }
+                    console.log('Firebase Authentication successful.');
+                } catch (error) {
+                    console.error('Firebase Auth Error:', error);
+                }
+            }
+            initializeAuth();
+
+            // Example Firestore function for the form submission (not actively called here to keep the mock log simple)
+            // async function saveInquiry(data) {
+            //     try {
+            //         const userId = auth.currentUser?.uid || 'anonymous';
+            //         const inquiriesCollectionPath = `artifacts/${appId}/users/${userId}/inquiries`;
+            //         await addDoc(collection(db, inquiriesCollectionPath), {
+            //             ...data,
+            //             timestamp: new Date().toISOString(),
+            //             status: 'New'
+            //         });
+            //         console.log("Inquiry saved to Firestore.");
+            //     } catch (e) {
+            //         console.error("Error adding document: ", e);
+            //     }
+            // }
+
+            // Replace form.addEventListener logic if you wish to use Firebase fully:
+            // form.addEventListener('submit', async function(event) {
+            //     // ... form data collection ...
+            //     await saveInquiry(data);
+            //     // ... show success message ...
+            // });
+        }
+        */
+    </script>
 </body>
 </html>
