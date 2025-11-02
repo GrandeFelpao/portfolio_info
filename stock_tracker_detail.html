@@ -56,15 +56,19 @@
             <h2 class="text-3xl font-bold mb-4 text-gray-50">Project Overview and Technical Details</h2>
             
             <p class="text-gray-300 mb-6">
-                This project was designed to provide a highly accessible, low-power solution for real-time market monitoring. The core innovation lies in the use of the **ESP32 microcontroller** for reliable Wi-Fi connectivity and data fetching.
+                This project provides a constantly updating <strong>"bedside clock"</strong> style display for monitoring real-time stock prices. The core challenge was implementing a reliable, low-power solution for asynchronous data retrieval and intuitive user navigation in an embedded environment.
+            </p>
+            <p class="text-gray-300 mb-6 font-semibold">
+                The ESP32 was programmed to fetch data, convert the temporary <strong>JSON</strong> structure from the Google Sheets output, and render it into a visually accessible, scrollable menu on the LCD display.
             </p>
 
-            <h3 class="text-2xl font-semibold text-primary mb-3">Key Components & Implementation</h3>
+            <h3 class="text-2xl font-semibold text-primary mb-3">Key Components & Data Flow</h3>
             <ul class="list-disc list-inside space-y-2 text-gray-300 mb-6 pl-4">
-                <li>**Microcontroller:** ESP32 for robust Wi-Fi and processing power.</li>
-                <li>**Data Source:** Integration with a financial API (e.g., Alpha Vantage) using Python scripts for data ingestion.</li>
-                <li>**User Interface:** A compact 16x2 or 20x4 LCD screen was used to display quotes concisely.</li>
-                <li>**Interaction:** A **potentiometer** provided intuitive, physical scrolling through the monitored stock list, replacing complex button interfaces.</li>
+                <li><strong>Microcontroller:</strong> <strong>ESP32</strong> for robust Wi-Fi connectivity and device logic.</li>
+                <li><strong>Data Source:</strong> A secured <strong>Google Sheet</strong> leveraging the `GoogleFinance` command to obtain up-to-date quotes.</li>
+                <li><strong>Data Handling:</strong> The ESP32 fetches the sheet data (exported as JSON), parses it, and structures it for display.</li>
+                <li><strong>User Interface:</strong> A compact <strong>LCD display</strong> for clear, concise quote presentation.</li>
+                <li><strong>User Experience:</strong> A <strong>potentiometer</strong> enables intuitive, physical scrolling through the stock list, and a <strong>push button</strong> allows the user to force an immediate data fetch.</li>
             </ul>
 
             <h3 class="text-2xl font-semibold text-primary mb-3">Skills Applied</h3>
@@ -72,14 +76,13 @@
                 <span class="bg-dark-bg text-primary px-3 py-1 rounded-full border border-primary/50">Python (MicroPython)</span>
                 <span class="bg-dark-bg text-primary px-3 py-1 rounded-full border border-primary/50">Problem Solving</span>
                 <span class="bg-dark-bg text-primary px-3 py-1 rounded-full border border-primary/50">IoT / Embedded Systems</span>
-                <span class="bg-dark-bg text-primary px-3 py-1 rounded-full border border-primary/50">API Integration</span>
+                <span class="bg-dark-bg text-primary px-3 py-1 rounded-full border border-primary/50">API / Data Parsing</span>
             </div>
 
             <div class="mt-8 pt-6 border-t border-gray-700">
-                <h3 class="2xl font-semibold mb-3 text-gray-50">Future Development</h3>
-                <p class="text-gray-300">
-                    Future iterations could involve implementing email alerts for price thresholds or transitioning to an e-paper display for ultra-low power consumption.
-                </p>
+                <a href="https://github.com/GrandeFelpao/Stock-Tracker" target="_blank" class="inline-block w-full text-center bg-primary hover:bg-cyan-600 text-dark-bg font-bold py-3 px-8 rounded-xl transition duration-300 shadow-lg">
+                    View Project Repository on GitHub
+                </a>
             </div>
         </div>
 
