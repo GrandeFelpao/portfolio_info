@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio & SAT Tutoring Inquiry Site</title>
-    <!-- Load Tailwind CSS -->
+    <title>Felipe R Todescan | SAT Prep & Engineering Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Configure Tailwind for Inter font and custom colors -->
     <script>
         tailwind.config = {
             theme: {
@@ -24,12 +22,11 @@
         }
     </script>
     <style>
-        /* Apply Inter font globally and ensure smooth scrolling */
+        /* Apply Inter font globally. IMPORTANT: Removed scroll-behavior: smooth; 
+           as scrolling is now handled by custom JavaScript for speed control. */
         body {
             font-family: 'Inter', sans-serif;
-            /* This property enables smooth scrolling globally, but we'll reinforce it with JS below */
-            scroll-behavior: smooth;
-            user-select: none; /* Discourages text selection */
+            /* scroll-behavior: smooth; - Removed */
         }
         /* Custom scrollbar for aesthetics */
         ::-webkit-scrollbar {
@@ -46,61 +43,72 @@
 </head>
 <body class="bg-dark-bg text-gray-100 min-h-screen">
 
-    <!-- Navbar -->
     <header class="sticky top-0 z-50 bg-dark-bg/90 backdrop-blur-sm shadow-lg">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <a href="#hero" class="text-2xl font-bold text-primary hover:text-cyan-400 transition">Felipe R Todescan</a>
+            <a href="#hero" class="text-xl md:text-2xl font-bold text-primary hover:text-cyan-400 transition">
+                Felipe R Todescan <span class="text-sm font-normal text-gray-400 hidden sm:inline">| SAT & Engineering</span>
+            </a>
             <div class="hidden md:flex space-x-8 text-lg">
-                <a href="#portfolio" class="hover:text-primary transition p-2 rounded-lg">Portfolio</a>
-                <a href="#tutoring" class="hover:text-primary transition p-2 rounded-lg">SAT Tutoring</a>
-                <a href="#contact" class="hover:text-primary transition p-2 rounded-lg bg-primary/20 text-primary border border-primary/50 rounded-xl px-4">Inquire Now</a>
+                <a href="#portfolio" class="hover:text-primary transition p-2 rounded-lg">💻 Portfolio</a>
+                <a href="#tutoring" class="hover:text-primary transition p-2 rounded-lg">📈 SAT Tutoring</a>
+                <a href="#contact" class="hover:text-primary transition p-2 rounded-lg bg-primary/20 text-primary border border-primary/50 rounded-xl px-4 font-semibold">Inquire Now</a>
             </div>
-            <!-- Mobile Menu Button -->
             <button id="mobile-menu-btn" class="md:hidden text-2xl text-primary p-2 focus:outline-none">
-                &#9776; <!-- Hamburger icon -->
-            </button>
+                &#9776; </button>
         </nav>
-        <!-- Mobile Menu Drawer -->
         <div id="mobile-menu" class="hidden md:hidden absolute w-full bg-secondary/95 backdrop-blur-sm shadow-xl p-4 transition-all duration-300">
-            <a href="#portfolio" class="block py-2 text-lg hover:text-primary transition rounded-lg" onclick="closeMenu()">Portfolio</a>
-            <a href="#tutoring" class="block py-2 text-lg hover:text-primary transition rounded-lg" onclick="closeMenu()">SAT Tutoring</a>
-            <a href="#contact" class="block py-2 text-lg bg-primary/20 text-primary mt-2 border border-primary/50 rounded-xl px-4" onclick="closeMenu()">Inquire Now</a>
+            <a href="#portfolio" class="block py-2 text-lg hover:text-primary transition rounded-lg" onclick="closeMenu()">💻 Portfolio</a>
+            <a href="#tutoring" class="block py-2 text-lg hover:text-primary transition rounded-lg" onclick="closeMenu()">📈 SAT Tutoring</a>
+            <a href="#contact" class="block py-2 text-lg bg-primary/20 text-primary mt-2 border border-primary/50 rounded-xl px-4 font-semibold" onclick="closeMenu()">Inquire Now</a>
         </div>
     </header>
     
-    <!-- Site Under Construction Disclaimer -->
     <div class="bg-yellow-900/50 border-y border-yellow-500/70 p-3 text-center text-sm font-medium text-yellow-200">
         ⚠️ <strong>Site Under Construction:</strong> This website is currently being updated. Some content and data may not be final or fully accurate.
     </div>
 
     <main class="max-w-7xl mx-auto">
 
-        <!-- 1. Hero Section -->
-        <section id="hero" class="py-20 md:py-32 px-4 sm:px-6 lg:px-8 text-center">
-            <div class="max-w-4xl mx-auto">
-                <p class="text-lg text-primary mb-3">Bachelor in Mechanical Engineering | Educator | Problem Solver</p>
-                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
-                    Building <span class="text-primary">Projects</span> That Shape The <span class="text-primary">Present</span>
+        <section id="hero" class="py-20 md:py-32 px-4 sm:px-6 lg:px-8 text-center md:text-left">
+            <div class="max-w-6xl mx-auto">
+                <p class="text-xl text-primary mb-2 font-medium">Mechanical Engineer & Expert Educator</p>
+                <h1 class="text-5xl md:text-6xl font-extrabold leading-snug mb-10">
+                    Maximizing Potential, <span class="text-primary">In Code and on the SAT.</span>
                 </h1>
-                <p class="text-xl text-gray-300 mb-10">
-                    Aspiring Mechanical Engineer with a rich project backrgound working to positively shape the present era
-                </p>
-                <div class="space-x-4">
-                    <a href="#portfolio" class="bg-primary hover:bg-cyan-600 text-dark-bg font-bold py-3 px-8 rounded-xl transition duration-300 shadow-xl inline-block">View Portfolio</a>
-                    <a href="#contact" class="border border-primary text-primary hover:bg-primary/20 font-bold py-3 px-8 rounded-xl transition duration-300 inline-block">Book a Consultation</a>
+                
+                <div class="grid md:grid-cols-2 gap-10 pt-8">
+                    
+                    <div class="bg-secondary/70 p-8 rounded-2xl shadow-xl border-t-4 border-primary/80">
+                        <h2 class="text-3xl font-bold mb-4 text-primary">📈 Expert SAT Tutoring</h2>
+                        <p class="text-gray-300 mb-6">
+                            Achieve your target score with personalized strategies, content mastery, and proven methods for the Digital SAT. 
+                        </p>
+                        <a href="#tutoring" class="bg-primary hover:bg-cyan-600 text-dark-bg font-bold py-3 px-8 rounded-xl transition duration-300 shadow-xl w-full inline-block text-center">
+                            Start Prep - See Results
+                        </a>
+                    </div>
+
+                    <div class="bg-secondary/70 p-8 rounded-2xl shadow-xl border-t-4 border-gray-500/80">
+                        <h2 class="text-3xl font-bold mb-4 text-gray-100">💻 Engineering & Projects</h2>
+                        <p class="text-gray-300 mb-6">
+                            Showcasing a background in Mechanical Engineering, Robotics, and Electronics. View tangible solutions to complex problems.
+                        </p>
+                        <a href="#portfolio" class="border border-gray-500 text-gray-200 hover:bg-gray-700/50 font-bold py-3 px-8 rounded-xl transition duration-300 w-full inline-block text-center">
+                            View Portfolio
+                        </a>
+                    </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- 2. Portfolio Section -->
-        <section id="portfolio" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-secondary rounded-xl shadow-2xl mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 border-b-2 border-primary/50 pb-4 max-w-lg mx-auto">
-                <span class="text-primary">|</span> Recent Projects
+        <section id="portfolio" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-secondary/80 rounded-xl shadow-2xl mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-6">
+                <span class="text-primary">|</span> 💻 Recent Projects
             </h2>
+            <div class="w-24 h-1 bg-primary/70 mx-auto mb-16 rounded-full"></div> 
 
-            <!-- GRID UPDATED FOR 2 PROJECTS -->
             <div class="grid md:grid-cols-2 gap-8">
-                <!-- Project Card 1: Stock Tracker -->
                 <div class="bg-dark-bg p-6 rounded-xl shadow-lg hover:shadow-primary/50 transition duration-300 transform hover:-translate-y-1 border border-secondary">
                     <img src="./images/project1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e293b/d1d5db?text=Stock+Tracker+Image';" alt="Stock Tracker Project Image" class="w-full h-auto rounded-lg mb-4 object-cover border border-gray-700">
                     <h3 class="text-2xl font-bold mb-3 text-primary">Stock Tracker</h3>
@@ -115,7 +123,6 @@
                     </a>
                 </div>
 
-                <!-- Project Card 2: WPT Demo -->
                 <div class="bg-dark-bg p-6 rounded-xl shadow-lg hover:shadow-primary/50 transition duration-300 transform hover:-translate-y-1 border border-secondary">
                     <img src="./images/project2.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e293b/d1d5db?text=WPT+Demo+Image';" alt="WPT Demo Project Image" class="w-full h-auto rounded-lg mb-4 object-cover border border-gray-700">
                     <h3 class="text-2xl font-bold mb-3 text-primary">WPT Demo</h3>
@@ -132,18 +139,27 @@
                     </a>
                 </div>
             </div>
+            
+            <div class="text-center mt-12">
+                <a href="/all-projects" class="inline-block border border-gray-600 text-gray-400 hover:bg-gray-700/50 font-bold py-3 px-8 rounded-xl transition duration-300">
+                    View All Projects (Optional Page)
+                </a>
+            </div>
         </section>
 
-        <!-- 3. SAT Tutoring Section -->
         <section id="tutoring" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 border-b-2 border-primary/50 pb-4 max-w-lg mx-auto">
-                <span class="text-primary">|</span> Expert SAT Prep
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-6">
+                <span class="text-primary">|</span> 📈 Expert SAT Prep
             </h2>
+            <div class="w-24 h-1 bg-primary/70 mx-auto mb-16 rounded-full"></div> 
 
             <div class="bg-secondary p-8 rounded-xl shadow-2xl">
                 <div class="grid md:grid-cols-2 gap-10 items-center">
                     <div>
                         <h3 class="text-3xl font-semibold mb-4 text-gray-50">Score-Boosting Strategies</h3>
+                        <p class="text-xl font-bold text-primary mb-3">
+                            My Personal SAT Score: 1470 (740 English / 730 Math)
+                        </p>
                         <p class="text-gray-300 mb-6">
                             I offer personalized, one-on-one SAT tutoring focused on maximizing your score through targeted practice, time management techniques, and deep content review for both Math and Evidence-Based Reading & Writing.
                         </p>
@@ -162,13 +178,12 @@
                             </li>
                         </ul>
                     </div>
-                    <!-- Mock Pricing/Qualification Card -->
                     <div class="bg-dark-bg p-6 rounded-xl shadow-xl border-l-4 border-primary/70">
                         <p class="text-lg font-bold text-primary mb-2">My Qualifications</p>
-                        <p class="text-4xl font-extrabold text-gray-50 mb-4">1470</p>
-                        <p class="text-gray-300 mb-4">740 in English and 730 in Math</p>
+                        <p class="text-4xl font-extrabold text-gray-50 mb-4">Focus on Results</p>
+                        <p class="text-gray-300 mb-4">My background in rigorous engineering problem-solving is directly applied to test-taking strategy.</p>
                         <div class="text-lg font-semibold mb-2">Rate Structure:</div>
-                        <ul class="space-y-1 text-gray-400">
+                        <ul class="space-y-1 text-gray-400 mb-4">
                             <li>$80/hour - Individual Sessions</li>
                             <li>$70/hour - 10-Hour Package</li>
                             <li>$60/hour - Group Sessions (3-5 students)</li>
@@ -179,36 +194,32 @@
             </div>
         </section>
 
-        <!-- 4. Contact/Inquiry Form Section -->
         <section id="contact" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 border-b-2 border-primary/50 pb-4 max-w-lg mx-auto">
-                <span class="text-primary">|</span> Get in Touch
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-6">
+                <span class="text-primary">|</span> ✉️ Get in Touch
             </h2>
+            <div class="w-24 h-1 bg-primary/70 mx-auto mb-16 rounded-full"></div> 
 
             <div class="max-w-3xl mx-auto bg-secondary p-8 md:p-12 rounded-xl shadow-2xl">
                 <p class="text-gray-300 mb-8 text-center text-lg">
-                    Whether it's for a development project or SAT tutoring, drop me a line.
+                    Whether it's for a **development project** or **SAT tutoring**, drop me a line.
                 </p>
 
                 <div id="success-message" class="hidden p-4 mb-4 text-sm text-green-100 rounded-lg bg-green-600 border border-green-700" role="alert">
                     <span class="font-medium">Success!</span> Inquiry received, you will be contacted via the email provided within 24 hours.
                 </div>
 
-                <!-- FORM UPDATED FOR GOOGLE FORMS SUBMISSION -->
                 <form id="inquiry-form" class="space-y-6" method="POST">
                     <div>
                         <label for="name" class="block mb-2 text-sm font-medium text-gray-200">Your Name</label>
-                        <!-- IMPORTANT: Replace entry.1234567890 with your Google Form Field ID -->
                         <input type="text" id="name" name="entry.91745632" class="bg-dark-bg border border-gray-600 text-gray-100 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-3 placeholder-gray-500" placeholder="Jane Doe" required>
                     </div>
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-200">Your Email</label>
-                        <!-- IMPORTANT: Replace entry.9876543210 with your Google Form Field ID -->
                         <input type="email" id="email" name="entry.859949158" class="bg-dark-bg border border-gray-600 text-gray-100 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-3 placeholder-gray-500" placeholder="name@example.com" required>
                     </div>
                     <div>
                         <label for="topic" class="block mb-2 text-sm font-medium text-gray-200">Inquiry Topic</label>
-                        <!-- IMPORTANT: Replace entry.1122334455 with your Google Form Field ID -->
                         <select id="topic" name="entry.787536078" class="bg-dark-bg border border-gray-600 text-gray-100 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-3" required>
                             <option value="" disabled selected>Select a Topic</option>
                             <option value="SAT Tutoring Inquiry">SAT Tutoring Inquiry</option>
@@ -218,7 +229,6 @@
                     </div>
                     <div>
                         <label for="message" class="block mb-2 text-sm font-medium text-gray-200">Your Message</label>
-                        <!-- IMPORTANT: Replace entry.6677889900 with your Google Form Field ID -->
                         <textarea id="message" name="entry.1019419988" rows="4" class="bg-dark-bg border border-gray-600 text-gray-100 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-3 placeholder-gray-500" placeholder="Tell me about your project or SAT goals..." required></textarea>
                     </div>
                     <button type="submit" class="w-full bg-primary hover:bg-cyan-600 text-dark-bg font-bold py-3 rounded-xl transition duration-300 shadow-lg">
@@ -230,7 +240,6 @@
 
     </main>
 
-    <!-- Footer -->
     <footer class="mt-16 py-8 border-t border-gray-700 bg-secondary">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
             <p>&copy; 2025 Felipe R Todescan. All rights reserved.</p>
@@ -243,11 +252,36 @@
 
     <script>
         // === CRITICAL STEP: REPLACE THIS PLACEHOLDER URL ===
-        // 1. Create your Google Form and get the pre-filled link.
-        // 2. Change 'viewform' to 'formResponse' in that link.
-        // 3. Paste the result here.
         const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScK5mj7VbyHN1GNdoR6x7oxHIXTdmtTZqfkOtP0qKDqjNmiUA/formResponse'; 
         
+        // --- Custom Smooth Scrolling Function (Set to 700ms) ---
+        const SCROLL_DURATION = 700; // 700ms for a slower, more controlled scroll
+
+        function customSmoothScroll(targetElement) {
+            if (!targetElement) return;
+
+            const startPosition = window.pageYOffset;
+            const targetPosition = targetElement.getBoundingClientRect().top + startPosition;
+            const distance = targetPosition - startPosition;
+            let startTime = null;
+
+            function animation(currentTime) {
+                if (startTime === null) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
+                
+                // Ease-in-out function for smoother start/stop
+                const progress = Math.min(1, timeElapsed / SCROLL_DURATION);
+                const easeProgress = 0.5 - Math.cos(progress * Math.PI) / 2; 
+
+                window.scrollTo(0, startPosition + distance * easeProgress);
+
+                if (timeElapsed < SCROLL_DURATION) {
+                    requestAnimationFrame(animation);
+                }
+            }
+            requestAnimationFrame(animation);
+        }
+
         // --- Navbar Toggle Logic ---
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -262,7 +296,7 @@
 
         mobileMenuBtn.addEventListener('click', toggleMenu);
 
-        // --- Smooth Scrolling for Anchor Links ---
+        // --- Smooth Scrolling for Anchor Links (using the custom function) ---
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
@@ -271,10 +305,8 @@
                     e.preventDefault();
                     const targetElement = document.querySelector(href);
                     if (targetElement) {
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
+                        customSmoothScroll(targetElement); 
+                        
                         if (!mobileMenu.classList.contains('hidden')) {
                             closeMenu();
                         }
@@ -288,11 +320,10 @@
         const successMessage = document.getElementById('success-message');
 
         form.addEventListener('submit', async function(event) {
-            event.preventDefault(); // Stop the default form submission
+            event.preventDefault(); 
 
-            if (GOOGLE_FORM_URL === 'YOUR_GOOGLE_FORM_SUBMIT_URL_HERE') {
-                // Inform the user the form is not connected
-                console.error("Please update GOOGLE_FORM_URL in the script to your actual form endpoint to enable submission to Google Sheets.");
+            if (GOOGLE_FORM_URL.includes('1FAIpQLScK5mj7VbyHN1GNdoR6x7oxHIXTdmtTZqfkOtP0qKDqjNmiUA')) {
+                console.error("Please update GOOGLE_FORM_URL and entry field IDs in the script and HTML.");
                 alert("FORM NOT CONNECTED: Please replace the placeholder URL (GOOGLE_FORM_URL) and the field names (entry.xxxxxxxxx) with your actual Google Form details.");
                 return;
             }
@@ -300,13 +331,11 @@
             const formData = new FormData(form);
             
             try {
-                // Convert FormData to URLSearchParams for x-www-form-urlencoded format
                 const urlEncodedData = new URLSearchParams();
                 for (const [key, value] of formData.entries()) {
                     urlEncodedData.append(key, value);
                 }
 
-                // Submits data via AJAX without redirecting. mode: 'no-cors' is required.
                 const response = await fetch(GOOGLE_FORM_URL, {
                     method: 'POST',
                     mode: 'no-cors', 
@@ -316,13 +345,9 @@
                     }
                 });
                 
-                // Show the success message (removed scrollIntoView here)
                 successMessage.classList.remove('hidden');
-
-                // Clear the form fields
                 form.reset();
 
-                // Hide the success message after 5 seconds
                 setTimeout(() => {
                     successMessage.classList.add('hidden');
                 }, 5000);
@@ -333,18 +358,16 @@
             }
         });
 
-        // --- Content Protection (Disabling Right Click and Dev Tools) ---
-        // Note: This is not foolproof but discourages casual copying.
-        document.addEventListener('contextmenu', event => event.preventDefault());
-        document.addEventListener('keydown', event => {
-            // Disable F12 (Dev Tools), Ctrl+Shift+I (Dev Tools), Ctrl+U (View Source), Ctrl+S (Save)
-            if (event.keyCode === 123 || 
-                (event.ctrlKey && event.shiftKey && event.keyCode === 73) || 
-                (event.ctrlKey && event.keyCode === 85) || 
-                (event.ctrlKey && event.keyCode === 83)) {
-                event.preventDefault();
-            }
-        });
+        // --- Content Protection (Optional) ---
+        // document.addEventListener('contextmenu', event => event.preventDefault());
+        // document.addEventListener('keydown', event => {
+        //     if (event.keyCode === 123 || 
+        //         (event.ctrlKey && event.shiftKey && event.keyCode === 73) || 
+        //         (event.ctrlKey && event.keyCode === 85) || 
+        //         (event.ctrlKey && event.keyCode === 83)) {
+        //         event.preventDefault();
+        //     }
+        // });
     </script>
 </body>
 </html>
