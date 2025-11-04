@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Felipe Todescan</title>
+    <title>Portfolio & SAT Tutoring Inquiry Site</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Configure Tailwind for Inter font and custom colors -->
@@ -29,6 +29,7 @@
             font-family: 'Inter', sans-serif;
             /* This property enables smooth scrolling globally, but we'll reinforce it with JS below */
             scroll-behavior: smooth;
+            user-select: none; /* Discourages text selection */
         }
         /* Custom scrollbar for aesthetics */
         ::-webkit-scrollbar {
@@ -69,7 +70,7 @@
     
     <!-- Site Under Construction Disclaimer -->
     <div class="bg-yellow-900/50 border-y border-yellow-500/70 p-3 text-center text-sm font-medium text-yellow-200">
-        ⚠️ **Site Under Construction:** This website is currently being updated. Some content and data may not be final or fully accurate.
+        ⚠️ <strong>Site Under Construction:</strong> This website is currently being updated. Some content and data may not be final or fully accurate.
     </div>
 
     <main class="max-w-7xl mx-auto">
@@ -126,7 +127,7 @@
                         <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full">AC Circuitry</span>
                         <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full">DC Circuitry</span>
                     </div>
-                    <a href="#link-to-wpt-demo-details" class="block w-full text-center bg-primary/20 text-primary hover:bg-primary/30 font-bold py-2 rounded-lg transition duration-300">
+                    <a href="./wpt_demo_detail.html" class="block w-full text-center bg-primary/20 text-primary hover:bg-primary/30 font-bold py-2 rounded-lg transition duration-300">
                         Learn More
                     </a>
                 </div>
@@ -330,6 +331,19 @@
             } catch (error) {
                 console.error('Submission Error:', error);
                 alert('Oops! The inquiry could not be sent due to a connection error. Please try again.');
+            }
+        });
+
+        // --- Content Protection (Disabling Right Click and Dev Tools) ---
+        // Note: This is not foolproof but discourages casual copying.
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.addEventListener('keydown', event => {
+            // Disable F12 (Dev Tools), Ctrl+Shift+I (Dev Tools), Ctrl+U (View Source), Ctrl+S (Save)
+            if (event.keyCode === 123 || 
+                (event.ctrlKey && event.shiftKey && event.keyCode === 73) || 
+                (event.ctrlKey && event.keyCode === 85) || 
+                (event.ctrlKey && event.keyCode === 83)) {
+                event.preventDefault();
             }
         });
     </script>
